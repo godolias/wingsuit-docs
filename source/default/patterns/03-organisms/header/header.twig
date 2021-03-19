@@ -1,0 +1,13 @@
+{# SETTINGS #}
+{% set header_classes = ([
+  'header-offset bg-teal-200 w-full z-30 top-0 text-white',
+  variant == 'fixed'? 'fixed h-18 w-full',
+  variant == 'sticky'? 'sticky',
+]) | sort | join(' ') | trim %}
+
+{# TEMPLATE #}
+<header class="{{ header_classes }}">
+  <div class="w-3/6 md:w-2/6 max-w-xs md:max-w-7xl">
+    {% include "@atoms/logo/logo.twig" only %}
+  </div>
+</header>

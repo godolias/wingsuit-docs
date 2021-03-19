@@ -1,0 +1,35 @@
+<footer class="text-gray-700 body-font">
+    <div class="bg-black py-6 flex items-center">
+    {% embed "@organisms/container/container.twig" %}
+      {% block content %}
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+        <a class="text-gray-500">
+          {% include "@atoms/svg/_svg--icon.twig" with {
+            icon: "facebook",
+            size: 'w-5 h-5',
+          } only %}
+        </a>
+        <a class="ml-3 text-gray-500">
+          {% include "@atoms/svg/_svg--icon.twig" with {
+            icon: "instagram",
+            size: 'w-5 h-5',
+          } only %}
+        </a>
+        <a class="ml-3 text-gray-500">
+          {% include "@atoms/svg/_svg--icon.twig" with {
+            icon: "twitter",
+            size: 'w-5 h-5',
+          } only %}
+        </a>
+        <a class="ml-3 text-gray-500">
+          {% include "@atoms/svg/_svg--icon.twig" with {
+            icon: "linkedin",
+            size: 'w-5 h-5',
+          } only %}
+        </a>
+      </span>
+        </div>
+      {% endblock %}
+    {% endembed %}
+  </div>
+</footer>
