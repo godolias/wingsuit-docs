@@ -27,7 +27,7 @@ module.exports = {
         500: '#00ffd1',
       },
       purple: '#8000ff',
-      yellow: colors.amber,
+      yellow: '#fffff0',
     },
     boxShadow: {
       md: '4px 4px 0 0 rgba(0, 0, 0)',
