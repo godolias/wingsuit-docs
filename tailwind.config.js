@@ -19,14 +19,23 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       gray: colors.trueGray,
-      green: '#319795',
+      blue: {
+        200: '#ebf4ff',
+      },
+      green: {
+        200: '#f0fff4',
+        500: '#319795',
+      },
       red: colors.rose,
       teal: {
         200: '#e6fffa',
         300: '#b2f5ea',
         500: '#00ffd1',
       },
-      purple: '#8000ff',
+      purple: {
+        200: '#faf5ff',
+        500: '#8000ff',
+      },
       yellow: '#fffff0',
     },
     boxShadow: {
@@ -76,6 +85,7 @@ module.exports = {
         '33/66': '33% 66%',
         '66/33': '66% 33%',
         '25/50/25': '25% 50% 25%',
+        '25/75': '25% 75%',
       },
     },
     fontFamily: {

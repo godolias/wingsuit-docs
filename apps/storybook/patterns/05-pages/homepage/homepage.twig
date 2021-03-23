@@ -1,13 +1,45 @@
 {% embed "@templates/site-container.twig"
   with {
-  primary_menu: pattern_preview('menu', {}, 'primary'),
   language_select: pattern_preview('language_select'),
   footer_menu_1: pattern_preview('menu', {}, 'footer'),
   footer_menu_2: pattern_preview('menu', {}, 'footer'),
   footer_menu_3: pattern_preview('menu', {}, 'footer'),
-  footer_menu_4: pattern_preview('menu', {}, 'footer')
 } %}
-  {% block main %}
-    {{ main }}
+  {% set image %}
+    <img src="./images/hero.png" alt="">
+  {% endset %}
+  {% set button %}
+    {% include '@atoms/button/button.twig' with {variant: 'rounded', text: 'Online Demo' } %}
+  {% endset %}
+  {% set button_second %}
+    {% include '@atoms/button/button.twig' with {variant: 'rounded', text: 'Instraction' } %}
+  {% endset %}
+  {% set button_third %}
+    {% include '@atoms/button/button.twig' with {variant: 'rounded', text: 'Quick Setup' } %}
+  {% endset %}
+  {% block content %}
+    {% embed "@organisms/section/section.twig" with { columns: 1 } %}
+      {% block column_1 %}
+        {% include '@molecules/hero/hero.twig' with {
+          headline: 'A design sytem for rapid pattern development. You will love to use.',
+          image: image,
+          sub_headline: 'Get started',
+          button: button,
+          button_second: button_second,
+          button_third: button_third
+        } %}
+      {% endblock %}
+    {% endembed %}
+    {% set header %}
+      <h2 class="h3">Define your components</h2>
+    {% endset %}
+    {% embed "@organisms/section/section.twig" with { columns: 2, bg: 'light-lue', header: header} %}
+      {% block column_1 %}
+        <img src="./images/hero.png" alt="">
+      {% endblock %}
+      {% block column_2 %}
+        <img src="./images/hero.png" alt="">
+      {% endblock %}
+    {% endembed %}
   {% endblock %}
 {% endembed %}
