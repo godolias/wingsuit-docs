@@ -1,9 +1,18 @@
-<ul class="list-reset lg:flex flex-col flex-1">
+<ul class="list-reset lg:flex flex-col flex-1 text-center lg:text-left">
   {% for item in items %}
-    <li class="mb-4 lg:py-0">
-      <a class="p-2 text-gray-600 hover:text-gray-900 hover:underline {% if (item.in_active_trail) %} bg-teal-300 {% endif %}" href="{{ item.url }}">
+    <li class="">
+      <div class="p-2 my-2.5 uppercase font-bold">
         {{ item.title }}
-      </a>
+      </div>
+      {% if item.below is not empty %}
+        <ul class="list-reset lg:flex flex-col flex-1 mb-7">
+          {% for sub_item in item.below %}
+            <li class="mb-4">
+              <a class="p-2 text-gray-600 hover:text-gray-900 hover:underline {% if (sub_item.in_active_trail) %} bg-teal-300 {% endif %}" href="{{ sub_item.url }}">{{ sub_item.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </li>
   {% endfor %}
 </ul>
