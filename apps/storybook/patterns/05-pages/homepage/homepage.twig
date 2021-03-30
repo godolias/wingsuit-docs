@@ -1,6 +1,7 @@
 {% embed "@templates/site-container.twig"
   with {
   language_select: pattern_preview('language_select'),
+  menu_top: pattern_preview('menu', {}, 'top'),
   footer_menu: pattern_preview('menu', {}, 'footer'),
 } %}
   {% set image %}

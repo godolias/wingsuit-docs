@@ -4,5 +4,6 @@
 
 import 'tokens/tokens.css';
 import './typo.css';
+import './utils.css';
 
 import 'alpinejs';

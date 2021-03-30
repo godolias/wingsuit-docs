@@ -7,17 +7,21 @@
 
 {# TEMPLATE #}
 <header class="{{ header_classes }}">
-  <div class=" h-full flex justify-between items-center md:max-w-7xl">
-    <div class="flex items-center">
-      {% include "@atoms/logo/logo.twig" only %}
-      <span class="text-xs text-gray-300">v1.0</span>
+  <div class=" h-full flex justify-between lg:justify-none items-center md:max-w-7xl">
+    <div class="w-3/6 md:w-2/6 max-w-xs md:max-w-7xl">
+      <div class="flex items-center">
+        {% include "@atoms/logo/logo.twig" only %}
+        <span class="text-xs text-gray-300">v1.0</span>
+      </div>
     </div>
     <div class="block lg:hidden" @click="menuIsOpen = !menuIsOpen">
       {% include "@atoms/hamburger/hamburger.twig" only %}
     </div>
-    <div class="w-full flex-grow mt-5 hidden text-black z-20 mt-2 bg-white overflow-y-auto fixed h-3/6 left-0 top-11 w-full bg-yellow" :class="{'block': menuIsOpen, 'hidden': !menuIsOpen}">
-      {{ menu }}
-    </div>
+    {% if menu_top is not empty %}
+      <div class="hidden lg:block">
+        {{ menu_top }}
+      </div>
+    {% endif %}
     <div class="hidden lg:block">
       <svg width="60" height="60" viewBox="0 0 250 250" aria-hidden="true"
            style="fill: rgb(0, 0, 0); color: rgb(255, 255, 255); position: absolute; top: 0px; border: 0px; right: 0px; z-index: 10;">
