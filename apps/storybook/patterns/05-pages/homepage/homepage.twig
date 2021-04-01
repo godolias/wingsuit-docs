@@ -30,9 +30,14 @@
       {% endblock %}
     {% endembed %}
     {% set header %}
-      <h2 class="h3">Define your components</h2>
+      {% embed "@atoms/rich-text/rich-text.twig" %}
+        {% block text %}
+          <h2 class="h3">Define your components</h2>
+          <p>Fields and settings are editable with knobs <br>make it easy to see your components in every state.</p>
+        {% endblock %}
+      {% endembed %}
     {% endset %}
-    {% embed "@organisms/section/section.twig" with { columns: 2, bg: 'purple-light', header: header} %}
+    {% embed "@organisms/section/section.twig" with { columns: 2, bg: 'purple-light', header: header, display_header_region: true, padding_top: 'default' } %}
       {% block column_1 %}
         <img src="./images/hero.png" alt="">
       {% endblock %}

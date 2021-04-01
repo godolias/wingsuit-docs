@@ -5,24 +5,25 @@
   variant == 'sticky'? 'sticky py-2',
 ]) | sort | join(' ') | trim %}
 
+{% set github_logo_classes = ([
+  show_hamburger == true ? 'hidden lg:block',
+]) | sort | join(' ') | trim %}
+
 {# TEMPLATE #}
 <header class="{{ header_classes }}">
   <div class=" h-full flex justify-between lg:justify-none items-center md:max-w-7xl">
-    <div class="w-3/6 md:w-2/6 max-w-xs md:max-w-7xl">
+    <div class="w-3/6 md:w-2/6 max-w-xs md:max-w-7xl ml-3">
       <div class="flex items-center">
         {% include "@atoms/logo/logo.twig" only %}
         <span class="text-xs text-gray-300">v1.0</span>
       </div>
     </div>
-    <div class="block lg:hidden" @click="menuIsOpen = !menuIsOpen">
-      {% include "@atoms/hamburger/hamburger.twig" only %}
-    </div>
-    {% if menu_top is not empty %}
-      <div class="hidden lg:block">
-        {{ menu_top }}
+    {% if show_hamburger == true %}
+      <div class="block lg:hidden" @click="menuIsOpen = !menuIsOpen">
+        {% include "@atoms/hamburger/hamburger.twig" only %}
       </div>
     {% endif %}
-    <div class="hidden lg:block">
+    <div class="{{ github_logo_classes }}">
       <svg width="60" height="60" viewBox="0 0 250 250" aria-hidden="true"
            style="fill: rgb(0, 0, 0); color: rgb(255, 255, 255); position: absolute; top: 0px; border: 0px; right: 0px; z-index: 10;">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -34,5 +35,10 @@
           fill="currentColor" class="octo-body"></path>
       </svg>
     </div>
+    {% if menu_top is not empty %}
+      <div class="hidden lg:flex flex-1">
+        {{ menu_top }}
+      </div>
+    {% endif %}
   </div>
 </header>
